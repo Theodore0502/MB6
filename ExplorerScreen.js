@@ -22,13 +22,17 @@ const popularItems2 = [
 const ExplorerScreen = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.searchBar}>
-        <Icon name="location-outline" size={20} color="#555" style={{ marginRight: 10 }} />
-        <TextInput 
-          placeholder="Search for meals or area" 
-          style={{ flex: 1, fontSize: 16 }} 
-        />
-        <Icon name="search-outline" size={20} color="#555" />
+      <View style={styles.searchContainer}>
+        <View style={styles.locationBox}>
+          <Icon name="location-outline" size={24} color="#555" />
+        </View>
+        <View style={styles.searchBox}>
+          <TextInput
+            placeholder="Search for meals or area"
+            style={styles.searchInput}
+          />
+          <Icon name="search-outline" size={24} color="#555" style={styles.searchIcon} />
+        </View>
       </View>
 
       <View style={styles.sectionHeader}>
@@ -100,18 +104,42 @@ const ExplorerScreen = () => {
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 16, backgroundColor: '#fff' },
   header: { fontSize: 24, fontWeight: 'bold' },
-  searchBar: {
+  searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 30,
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    elevation: 2,
+    marginBottom: 16,
   },
-  
+
+  locationBox: {
+    width: 50,
+    height: 50,
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    marginRight: 10,
+  },
+
+  searchBox: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f0f0f0',
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    height: 50,
+  },
+
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    paddingVertical: 10,
+  },
+
+  searchIcon: {
+    marginLeft: 5,
+  },
+
   input: { flex: 1, marginLeft: 10 },
   sectionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginVertical: 10 },
   sectionTitle: { fontSize: 18, fontWeight: 'bold' },
@@ -121,14 +149,14 @@ const styles = StyleSheet.create({
   categoryImage: { width: 100, height: 120, borderRadius: 10 },
   categoryText: { marginTop: 5, fontWeight: 'bold' },
 
-  itemRow: { 
-    flexDirection: 'row', 
-    alignItems: 'center', 
-    backgroundColor: '#fff', 
-    borderRadius: 10, 
-    marginRight: 10, 
-    padding: 10, 
-    elevation: 2 
+  itemRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    marginRight: 10,
+    padding: 10,
+    elevation: 2
   },
   itemImageSmall: { width: 100, height: 100, borderRadius: 10 },
   itemInfo: { marginLeft: 10 },
